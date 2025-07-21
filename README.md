@@ -1,6 +1,9 @@
 # OPC-UA Machine Simulator User Guide
 
 ## Quick Start
+**Author**: Rudy Vasquez
+
+## Quick Start
 
 **Environment**: Raspberry Pi 5, Debian 12, Node-RED 4.0.9, node-red-contrib-opcua 0.2.340
 
