@@ -1,0 +1,2001 @@
+[
+    {
+        "id": "436b93522e8c0542",
+        "type": "tab",
+        "label": "OPC UA Simulator",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "28084647833c9f3a",
+        "type": "inject",
+        "z": "436b93522e8c0542",
+        "name": "Init Config Trigger",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "0.1",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 60,
+        "wires": [
+            [
+                "a821c186c8fae731"
+            ]
+        ]
+    },
+    {
+        "id": "a821c186c8fae731",
+        "type": "change",
+        "z": "436b93522e8c0542",
+        "name": "Set Config",
+        "rules": [
+            {
+                "t": "set",
+                "p": "config",
+                "pt": "flow",
+                "to": "{\"downtimeCodes\":[101,102,103],\"scrapReasonCodes\":[40,50,60,70,80,90,100],\"scrapReasonWeights\":[1,1,1,1,1,1,1],\"cycleTime\":1000,\"probabilityScrap\":0.1,\"countMax\":32768,\"probabilityDowntime\":0.02,\"downtimeMinDuration\":5000,\"downtimeMaxDuration\":15000,\"statusReasonAutomation\":true,\"prodCountMode\":\"incremental\",\"prodCountIncrement\":1,\"prodCountRollover\":32767,\"prodCountAbsMin\":1,\"prodCountAbsMax\":10,\"scrapCountMode\":\"incremental\",\"scrapCountIncrement\":1,\"scrapCountRollover\":32767,\"scrapCountAbsMin\":1,\"scrapCountAbsMax\":10}",
+                "tot": "json"
+            }
+        ],
+        "x": 330,
+        "y": 60,
+        "wires": [
+            [
+                "a26a6d8a97ec2b8e"
+            ]
+        ]
+    },
+    {
+        "id": "a26a6d8a97ec2b8e",
+        "type": "inject",
+        "z": "436b93522e8c0542",
+        "name": "Init Automation Display",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "1",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 550,
+        "y": 60,
+        "wires": [
+            [
+                "d368d305bdea8a76",
+                "035c9fd48a826cde",
+                "608ef5ed2844349c",
+                "0b2e878d7006134a",
+                "3bfe04475939ae0d"
+            ]
+        ]
+    },
+    {
+        "id": "652bedd9bac893ae",
+        "type": "inject",
+        "z": "436b93522e8c0542",
+        "name": "Set Cycle Time 750ms",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0,
+        "topic": "",
+        "payload": "750",
+        "payloadType": "num",
+        "x": 180,
+        "y": 720,
+        "wires": [
+            [
+                "5508eb750aa45759"
+            ]
+        ]
+    },
+    {
+        "id": "12ee0a27ed4ced4d",
+        "type": "inject",
+        "z": "436b93522e8c0542",
+        "name": "Set Cycle Time 1000ms",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0,
+        "topic": "",
+        "payload": "1000",
+        "payloadType": "num",
+        "x": 180,
+        "y": 760,
+        "wires": [
+            [
+                "5508eb750aa45759"
+            ]
+        ]
+    },
+    {
+        "id": "27fa42b28c1c10e0",
+        "type": "inject",
+        "z": "436b93522e8c0542",
+        "name": "Set Cycle Time 5000ms",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0,
+        "topic": "",
+        "payload": "5000",
+        "payloadType": "num",
+        "x": 180,
+        "y": 800,
+        "wires": [
+            [
+                "5508eb750aa45759"
+            ]
+        ]
+    },
+    {
+        "id": "9dccd1f322b7e9b6",
+        "type": "inject",
+        "z": "436b93522e8c0542",
+        "name": "Custom Cycle Time",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0,
+        "topic": "",
+        "payload": "1500",
+        "payloadType": "num",
+        "x": 170,
+        "y": 840,
+        "wires": [
+            [
+                "5508eb750aa45759"
+            ]
+        ]
+    },
+    {
+        "id": "1df90acde9d28655",
+        "type": "inject",
+        "z": "436b93522e8c0542",
+        "name": "ProdCount: Absolute Mode",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0,
+        "topic": "",
+        "payload": "{\"type\":\"prodCountMode\",\"value\":\"absolute\"}",
+        "payloadType": "json",
+        "x": 190,
+        "y": 940,
+        "wires": [
+            [
+                "d4b288de5bf1d92c"
+            ]
+        ]
+    },
+    {
+        "id": "5bd34909865e2599",
+        "type": "inject",
+        "z": "436b93522e8c0542",
+        "name": "ProdCount: Incremental Mode",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0,
+        "topic": "",
+        "payload": "{\"type\":\"prodCountMode\",\"value\":\"incremental\"}",
+        "payloadType": "json",
+        "x": 200,
+        "y": 980,
+        "wires": [
+            [
+                "d4b288de5bf1d92c"
+            ]
+        ]
+    },
+    {
+        "id": "248d1b874a958a3f",
+        "type": "inject",
+        "z": "436b93522e8c0542",
+        "name": "ScrapCount: Absolute Mode",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0,
+        "topic": "",
+        "payload": "{\"type\":\"scrapCountMode\",\"value\":\"absolute\"}",
+        "payloadType": "json",
+        "x": 200,
+        "y": 1380,
+        "wires": [
+            [
+                "d4b288de5bf1d92c"
+            ]
+        ]
+    },
+    {
+        "id": "72aa75c6bcf0fb01",
+        "type": "inject",
+        "z": "436b93522e8c0542",
+        "name": "ScrapCount: Incremental Mode",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0,
+        "topic": "",
+        "payload": "{\"type\":\"scrapCountMode\",\"value\":\"incremental\"}",
+        "payloadType": "json",
+        "x": 210,
+        "y": 1420,
+        "wires": [
+            [
+                "d4b288de5bf1d92c"
+            ]
+        ]
+    },
+    {
+        "id": "529b186fea39cb04",
+        "type": "inject",
+        "z": "436b93522e8c0542",
+        "name": "ProdCount Inc: +1",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0,
+        "topic": "",
+        "payload": "{\"type\":\"prodCountIncrement\",\"value\":1}",
+        "payloadType": "json",
+        "x": 170,
+        "y": 1020,
+        "wires": [
+            [
+                "d4b288de5bf1d92c"
+            ]
+        ]
+    },
+    {
+        "id": "f04c2f30d4f05c11",
+        "type": "inject",
+        "z": "436b93522e8c0542",
+        "name": "ProdCount Inc: +10",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0,
+        "topic": "",
+        "payload": "{\"type\":\"prodCountIncrement\",\"value\":10}",
+        "payloadType": "json",
+        "x": 170,
+        "y": 1060,
+        "wires": [
+            [
+                "d4b288de5bf1d92c"
+            ]
+        ]
+    },
+    {
+        "id": "c10e2cd074b8b090",
+        "type": "inject",
+        "z": "436b93522e8c0542",
+        "name": "ProdCount Inc: Random 1-100",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0,
+        "topic": "",
+        "payload": "{\"type\":\"prodCountIncrement\",\"value\":\"random\"}",
+        "payloadType": "json",
+        "x": 200,
+        "y": 1100,
+        "wires": [
+            [
+                "d4b288de5bf1d92c"
+            ]
+        ]
+    },
+    {
+        "id": "60f5c503e332db18",
+        "type": "inject",
+        "z": "436b93522e8c0542",
+        "name": "ProdCount Inc: Custom 5",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0,
+        "topic": "",
+        "payload": "{\"type\":\"prodCountIncrement\",\"value\":5}",
+        "payloadType": "json",
+        "x": 190,
+        "y": 1180,
+        "wires": [
+            [
+                "d4b288de5bf1d92c"
+            ]
+        ]
+    },
+    {
+        "id": "5a6dd0ab248f2f6d",
+        "type": "inject",
+        "z": "436b93522e8c0542",
+        "name": "ScrapCount Inc: +1",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0,
+        "topic": "",
+        "payload": "{\"type\":\"scrapCountIncrement\",\"value\":1}",
+        "payloadType": "json",
+        "x": 170,
+        "y": 1460,
+        "wires": [
+            [
+                "d4b288de5bf1d92c"
+            ]
+        ]
+    },
+    {
+        "id": "ce26814f2e93ecf1",
+        "type": "inject",
+        "z": "436b93522e8c0542",
+        "name": "ScrapCount Inc: +10",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0,
+        "topic": "",
+        "payload": "{\"type\":\"scrapCountIncrement\",\"value\":10}",
+        "payloadType": "json",
+        "x": 170,
+        "y": 1500,
+        "wires": [
+            [
+                "d4b288de5bf1d92c"
+            ]
+        ]
+    },
+    {
+        "id": "554805e8065ba949",
+        "type": "inject",
+        "z": "436b93522e8c0542",
+        "name": "ScrapCount Inc: Random 1-100",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0,
+        "topic": "",
+        "payload": "{\"type\":\"scrapCountIncrement\",\"value\":\"random\"}",
+        "payloadType": "json",
+        "x": 210,
+        "y": 1580,
+        "wires": [
+            [
+                "d4b288de5bf1d92c"
+            ]
+        ]
+    },
+    {
+        "id": "f0c0d5d2c950a54e",
+        "type": "inject",
+        "z": "436b93522e8c0542",
+        "name": "ScrapCount Inc: Custom 3",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0,
+        "topic": "",
+        "payload": "{\"type\":\"scrapCountIncrement\",\"value\":3}",
+        "payloadType": "json",
+        "x": 190,
+        "y": 1620,
+        "wires": [
+            [
+                "d4b288de5bf1d92c"
+            ]
+        ]
+    },
+    {
+        "id": "e0f637cabab0646d",
+        "type": "inject",
+        "z": "436b93522e8c0542",
+        "name": "ProdCount Range: 1-20",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0,
+        "topic": "",
+        "payload": "{\"type\":\"prodCountAbsRange\",\"min\":1,\"max\":20}",
+        "payloadType": "json",
+        "x": 180,
+        "y": 1140,
+        "wires": [
+            [
+                "d4b288de5bf1d92c"
+            ]
+        ]
+    },
+    {
+        "id": "c21808892b704e5b",
+        "type": "inject",
+        "z": "436b93522e8c0542",
+        "name": "ScrapCount Range: 1-15",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0,
+        "topic": "",
+        "payload": "{\"type\":\"scrapCountAbsRange\",\"min\":1,\"max\":15}",
+        "payloadType": "json",
+        "x": 190,
+        "y": 1540,
+        "wires": [
+            [
+                "d4b288de5bf1d92c"
+            ]
+        ]
+    },
+    {
+        "id": "3405bbeb8506801d",
+        "type": "inject",
+        "z": "436b93522e8c0542",
+        "name": "Set ProdCount Rollover",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0,
+        "topic": "",
+        "payload": "{\"type\":\"prodCountRollover\",\"value\":1000}",
+        "payloadType": "json",
+        "x": 180,
+        "y": 900,
+        "wires": [
+            [
+                "d4b288de5bf1d92c"
+            ]
+        ]
+    },
+    {
+        "id": "044e17dc90b4cc66",
+        "type": "inject",
+        "z": "436b93522e8c0542",
+        "name": "Set ScrapCount Rollover",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0,
+        "topic": "",
+        "payload": "{\"type\":\"scrapCountRollover\",\"value\":100}",
+        "payloadType": "json",
+        "x": 190,
+        "y": 1340,
+        "wires": [
+            [
+                "d4b288de5bf1d92c"
+            ]
+        ]
+    },
+    {
+        "id": "3c1e196767d48eac",
+        "type": "inject",
+        "z": "436b93522e8c0542",
+        "name": "Set Both Rollovers: 100",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0,
+        "topic": "",
+        "payload": "{\"type\":\"setBothRollovers\",\"value\":100}",
+        "payloadType": "json",
+        "x": 180,
+        "y": 1260,
+        "wires": [
+            [
+                "d4b288de5bf1d92c"
+            ]
+        ]
+    },
+    {
+        "id": "d4b288de5bf1d92c",
+        "type": "function",
+        "z": "436b93522e8c0542",
+        "name": "Count Mode Manager",
+        "func": "// Get current config\nlet cfg = flow.get('config');\nif(!cfg){\n    node.error('Configuration not found! Please trigger Init Config first.');\n    return null;\n}\n\n// Handle initialization (when no type specified, just trigger displays)\nif (!msg.payload || !msg.payload.type) {\n    // This is an initialization trigger - just pass through to update displays\n    return msg;\n}\n\n// Handle different message types\nif (msg.payload && msg.payload.type) {\n    let updateType = msg.payload.type;\n    \n    // Handle range updates (min/max)\n    if (updateType === 'prodCountAbsRange') {\n        cfg.prodCountAbsMin = msg.payload.min;\n        cfg.prodCountAbsMax = msg.payload.max;\n        flow.set('config', cfg);\n        node.status({\n            fill: \"green\", \n            shape: \"dot\", \n            text: `ProdCount Range: ${msg.payload.min}-${msg.payload.max}`\n        });\n    } else if (updateType === 'scrapCountAbsRange') {\n        cfg.scrapCountAbsMin = msg.payload.min;\n        cfg.scrapCountAbsMax = msg.payload.max;\n        flow.set('config', cfg);\n        node.status({\n            fill: \"green\", \n            shape: \"dot\", \n            text: `ScrapCount Range: ${msg.payload.min}-${msg.payload.max}`\n        });\n    } else if (updateType === 'setBothRollovers') {\n        // Handle setting both rollovers at once\n        let newRollover = msg.payload.value;\n        let warnings = [];\n        \n        // Check if prodCount needs to be reset\n        let currentProdCount = flow.get('prodCount') || 0;\n        if (currentProdCount > newRollover) {\n            flow.set('prodCount', 0);\n            warnings.push(`prodCount was ${currentProdCount}, reset to 0`);\n        }\n        \n        // Check if scrapCount needs to be reset  \n        let currentScrapCount = flow.get('scrapCount') || 0;\n        if (currentScrapCount > newRollover) {\n            flow.set('scrapCount', 0);\n            warnings.push(`scrapCount was ${currentScrapCount}, reset to 0`);\n        }\n        \n        cfg.prodCountRollover = newRollover;\n        cfg.scrapCountRollover = newRollover;\n        flow.set('config', cfg);\n        \n        if (warnings.length > 0) {\n            node.status({\n                fill: \"red\", \n                shape: \"dot\", \n                text: `⚠️ ROLLOVER WARNING: ${warnings.join(', ')}`\n            });\n            node.warn(`Rollover set to ${newRollover}: ${warnings.join(', ')}`);\n        } else {\n            node.status({\n                fill: \"blue\", \n                shape: \"dot\", \n                text: `Both Rollovers: ${newRollover}`\n            });\n        }\n    } else if (msg.payload.value !== undefined) {\n        // Handle single value updates\n        let updateValue = msg.payload.value;\n        \n        cfg[updateType] = updateValue;\n        flow.set('config', cfg);\n        \n        // Reset counters when switching modes\n        if (updateType === 'prodCountMode') {\n            flow.set('prodCount', 0);\n            node.status({\n                fill: \"blue\", \n                shape: \"dot\", \n                text: `ProdCount: ${updateValue} mode`\n            });\n        } else if (updateType === 'scrapCountMode') {\n            flow.set('scrapCount', 0);\n            node.status({\n                fill: \"blue\", \n                shape: \"dot\", \n                text: `ScrapCount: ${updateValue} mode`\n            });\n        } else if (updateType === 'prodCountRollover') {\n            // Handle individual prodCount rollover with warning check\n            let currentProdCount = flow.get('prodCount') || 0;\n            if (currentProdCount > updateValue) {\n                flow.set('prodCount', 0);\n                node.status({\n                    fill: \"red\", \n                    shape: \"dot\", \n                    text: `⚠️ prodCount was ${currentProdCount}, reset to 0`\n                });\n                node.warn(`ProdCount rollover set to ${updateValue}: prodCount was ${currentProdCount}, reset to 0`);\n            } else {\n                node.status({\n                    fill: \"green\", \n                    shape: \"dot\", \n                    text: `${updateType}: ${updateValue}`\n                });\n            }\n        } else if (updateType === 'scrapCountRollover') {\n            // Handle individual scrapCount rollover with warning check\n            let currentScrapCount = flow.get('scrapCount') || 0;\n            if (currentScrapCount > updateValue) {\n                flow.set('scrapCount', 0);\n                node.status({\n                    fill: \"red\", \n                    shape: \"dot\", \n                    text: `⚠️ scrapCount was ${currentScrapCount}, reset to 0`\n                });\n                node.warn(`ScrapCount rollover set to ${updateValue}: scrapCount was ${currentScrapCount}, reset to 0`);\n            } else {\n                node.status({\n                    fill: \"green\", \n                    shape: \"dot\", \n                    text: `${updateType}: ${updateValue}`\n                });\n            }\n        } else {\n            node.status({\n                fill: \"green\", \n                shape: \"dot\", \n                text: `${updateType}: ${updateValue}`\n            });\n        }\n    }\n    \n    // Clear status after 3 seconds\n    setTimeout(() => {\n        node.status({});\n    }, 3000);\n    \n    node.log(`Configuration updated: ${JSON.stringify(msg.payload)}`);\n} else {\n    node.error(\"Invalid count mode configuration\");\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 540,
+        "y": 1180,
+        "wires": [
+            [
+                "035c9fd48a826cde",
+                "608ef5ed2844349c",
+                "0b2e878d7006134a",
+                "3bfe04475939ae0d"
+            ]
+        ]
+    },
+    {
+        "id": "035c9fd48a826cde",
+        "type": "function",
+        "z": "436b93522e8c0542",
+        "name": "ProdCount Status Display",
+        "func": "let cfg = flow.get('config');\nif(!cfg) {\n    node.status({fill: \"red\", shape: \"dot\", text: \"No Config\"});\n    return null;\n}\n\n// Build status text\nlet mode = cfg.prodCountMode || 'incremental';\nlet statusText = `ProdCount: ${mode}`;\n\nif (mode === 'incremental') {\n    let inc = cfg.prodCountIncrement || 1;\n    let rollover = cfg.prodCountRollover || 32767;\n    statusText += ` (+${inc === 'random' ? 'rnd' : inc}, R:${rollover})`;\n} else {\n    let min = cfg.prodCountAbsMin || 1;\n    let max = cfg.prodCountAbsMax || 10;\n    statusText += ` (${min}-${max})`;\n}\n\n// Show persistent status\nnode.status({\n    fill: mode === 'incremental' ? \"green\" : \"blue\", \n    shape: \"dot\", \n    text: statusText\n});\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 890,
+        "y": 1080,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "608ef5ed2844349c",
+        "type": "function",
+        "z": "436b93522e8c0542",
+        "name": "ScrapCount Status Display",
+        "func": "let cfg = flow.get('config');\nif(!cfg) {\n    node.status({fill: \"red\", shape: \"dot\", text: \"No Config\"});\n    return null;\n}\n\n// Build status text\nlet mode = cfg.scrapCountMode || 'incremental';\nlet statusText = `ScrapCount: ${mode}`;\n\nif (mode === 'incremental') {\n    let inc = cfg.scrapCountIncrement || 1;\n    let rollover = cfg.scrapCountRollover || 32767;\n    statusText += ` (+${inc === 'random' ? 'rnd' : inc}, R:${rollover})`;\n} else {\n    let min = cfg.scrapCountAbsMin || 1;\n    let max = cfg.scrapCountAbsMax || 10;\n    statusText += ` (${min}-${max})`;\n}\n\n// Show persistent status\nnode.status({\n    fill: mode === 'incremental' ? \"green\" : \"blue\", \n    shape: \"dot\", \n    text: statusText\n});\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 900,
+        "y": 1140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "0b2e878d7006134a",
+        "type": "function",
+        "z": "436b93522e8c0542",
+        "name": "ProdCount Rollover Display",
+        "func": "let cfg = flow.get('config');\nif(!cfg) {\n    node.status({fill: \"red\", shape: \"dot\", text: \"No Config\"});\n    return null;\n}\n\n// Get rollover value\nlet rollover = cfg.prodCountRollover || 32767;\nlet statusText = `ProdCount Rollover: ${rollover}`;\n\n// Show persistent status - purple color for rollover\nnode.status({\n    fill: \"purple\", \n    shape: \"dot\", \n    text: statusText\n});\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 900,
+        "y": 1200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3bfe04475939ae0d",
+        "type": "function",
+        "z": "436b93522e8c0542",
+        "name": "ScrapCount Rollover Display",
+        "func": "let cfg = flow.get('config');\nif(!cfg) {\n    node.status({fill: \"red\", shape: \"dot\", text: \"No Config\"});\n    return null;\n}\n\n// Get rollover value\nlet rollover = cfg.scrapCountRollover || 32767;\nlet statusText = `ScrapCount Rollover: ${rollover}`;\n\n// Show persistent status - purple color for rollover\nnode.status({\n    fill: \"purple\", \n    shape: \"dot\", \n    text: statusText\n});\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 900,
+        "y": 1260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "04bbea956d614a40",
+        "type": "inject",
+        "z": "436b93522e8c0542",
+        "name": "add equipStatus",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "2",
+        "topic": "ns=1;s=equipStatus;datatype=Int32",
+        "payload": "{\"opcuaCommand\":\"addVariable\"}",
+        "payloadType": "json",
+        "x": 1220,
+        "y": 540,
+        "wires": [
+            [
+                "35ed80fdb3da90cb"
+            ]
+        ]
+    },
+    {
+        "id": "e1c1ba9ce4927bc2",
+        "type": "inject",
+        "z": "436b93522e8c0542",
+        "name": "add prodCount",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "2",
+        "topic": "ns=1;s=prodCount;datatype=Int32",
+        "payload": "{\"opcuaCommand\":\"addVariable\"}",
+        "payloadType": "json",
+        "x": 1220,
+        "y": 580,
+        "wires": [
+            [
+                "35ed80fdb3da90cb"
+            ]
+        ]
+    },
+    {
+        "id": "dc52bd1b1a393409",
+        "type": "inject",
+        "z": "436b93522e8c0542",
+        "name": "add scrapCount",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "2",
+        "topic": "ns=1;s=scrapCount;datatype=Int32",
+        "payload": "{\"opcuaCommand\":\"addVariable\"}",
+        "payloadType": "json",
+        "x": 1220,
+        "y": 620,
+        "wires": [
+            [
+                "35ed80fdb3da90cb"
+            ]
+        ]
+    },
+    {
+        "id": "8daa4c5ff89ebfc7",
+        "type": "inject",
+        "z": "436b93522e8c0542",
+        "name": "add scrapReason",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "2",
+        "topic": "ns=1;s=scrapReason;datatype=Int32",
+        "payload": "{\"opcuaCommand\":\"addVariable\"}",
+        "payloadType": "json",
+        "x": 1230,
+        "y": 660,
+        "wires": [
+            [
+                "35ed80fdb3da90cb"
+            ]
+        ]
+    },
+    {
+        "id": "6b10867cf1a7e7f6",
+        "type": "inject",
+        "z": "436b93522e8c0542",
+        "name": "add statusReason",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "2",
+        "topic": "ns=1;s=statusReason;datatype=Int32",
+        "payload": "{\"opcuaCommand\":\"addVariable\"}",
+        "payloadType": "json",
+        "x": 1230,
+        "y": 700,
+        "wires": [
+            [
+                "35ed80fdb3da90cb"
+            ]
+        ]
+    },
+    {
+        "id": "6f2cb569220b0b94",
+        "type": "inject",
+        "z": "436b93522e8c0542",
+        "name": "add readWriteInt",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "2.1",
+        "topic": "ns=1;s=readWriteInt;datatype=Int32",
+        "payload": "{\"opcuaCommand\":\"addVariable\"}",
+        "payloadType": "json",
+        "x": 1230,
+        "y": 740,
+        "wires": [
+            [
+                "35ed80fdb3da90cb"
+            ]
+        ]
+    },
+    {
+        "id": "ee1cf40a6ab03971",
+        "type": "inject",
+        "z": "436b93522e8c0542",
+        "name": "add readWriteString",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "2.2",
+        "topic": "ns=1;s=readWriteString;datatype=String",
+        "payload": "{\"opcuaCommand\":\"addVariable\"}",
+        "payloadType": "json",
+        "x": 1240,
+        "y": 780,
+        "wires": [
+            [
+                "35ed80fdb3da90cb"
+            ]
+        ]
+    },
+    {
+        "id": "9be3ea5d468f1efb",
+        "type": "inject",
+        "z": "436b93522e8c0542",
+        "name": "Start Simulation",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.5,
+        "topic": "",
+        "payload": "start",
+        "payloadType": "str",
+        "x": 560,
+        "y": 340,
+        "wires": [
+            [
+                "5508eb750aa45759"
+            ]
+        ]
+    },
+    {
+        "id": "5508eb750aa45759",
+        "type": "function",
+        "z": "436b93522e8c0542",
+        "name": "Cycle Timer Manager",
+        "func": "// Initialize config if needed\nlet cfg = flow.get('config');\nif(!cfg){\n    cfg = {\n        downtimeCodes: [101,102,103],\n        scrapReasonCodes: [40,50,60,70,80,90,100],\n        scrapReasonWeights: [1,1,1,1,1,1,1],\n        cycleTime: 1000,\n        probabilityScrap: 0.1,\n        countMax: 32768,\n        probabilityDowntime: 0.02,\n        downtimeMinDuration: 5000,\n        downtimeMaxDuration: 15000,\n        statusReasonAutomation: true,\n        prodCountMode: \"incremental\",\n        prodCountIncrement: 1,\n        prodCountRollover: 32767,\n        prodCountAbsMin: 1,\n        prodCountAbsMax: 10,\n        scrapCountMode: \"incremental\",\n        scrapCountIncrement: 1,\n        scrapCountRollover: 32767,\n        scrapCountAbsMin: 1,\n        scrapCountAbsMax: 10\n    };\n    flow.set('config', cfg);\n}\n\n// Clear any existing timer\nlet timerId = context.get('timerId');\nif(timerId) {\n    clearTimeout(timerId);\n}\n\n// Check if this is a cycle time update\nif (typeof msg.payload === 'number' && msg.payload > 0) {\n    // Update cycle time\n    cfg.cycleTime = msg.payload;\n    flow.set('config', cfg);\n    \n    // Show status update\n    node.status({\n        fill: \"blue\", \n        shape: \"dot\", \n        text: `Cycle Time: ${msg.payload}ms`\n    });\n    \n    // Clear status after 3 seconds\n    setTimeout(() => {\n        node.status({fill: \"green\", shape: \"dot\", text: `Running: ${msg.payload}ms`});\n    }, 3000);\n    \n    node.log(`Cycle time updated to ${msg.payload}ms`);\n}\n\n// Function to schedule next cycle\nfunction scheduleNext() {\n    let config = flow.get('config');\n    let cycleTime = config.cycleTime || 1000;\n    let newTimerId = setTimeout(() => {\n        node.send({payload: Date.now()});\n        scheduleNext();\n    }, cycleTime);\n    context.set('timerId', newTimerId);\n}\n\n// Start/restart the timer\nscheduleNext();\n\n// Show running status\nnode.status({fill: \"green\", shape: \"dot\", text: `Running: ${cfg.cycleTime}ms`});\n\n// Send initial trigger for startup, or continue for cycle time updates\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 760,
+        "y": 340,
+        "wires": [
+            [
+                "d69d5d63292eb2c1",
+                "a8f7ab5f5a4ed4af",
+                "efd94c6196ec80ce",
+                "8021c91c11ec3f9f",
+                "f7d243c29d33dec5",
+                "9cf8b44ef2eb88fc"
+            ]
+        ]
+    },
+    {
+        "id": "d69d5d63292eb2c1",
+        "type": "function",
+        "z": "436b93522e8c0542",
+        "name": "Cycle Logic",
+        "func": "let cfg = flow.get('config');\nif(!cfg){\n    node.error('Configuration not found! Please trigger Init Config first.');\n    return [null, null, null, null, null];\n}\nif(!Array.isArray(cfg.scrapReasonWeights)){cfg.scrapReasonWeights=[1];}\nif(!Array.isArray(cfg.scrapReasonCodes)){cfg.scrapReasonCodes=[40];}\nif(!Array.isArray(cfg.downtimeCodes)){cfg.downtimeCodes=[101,102,103];}\n\n// Set defaults for new counting mode properties if missing\nif(!cfg.prodCountMode) cfg.prodCountMode = \"incremental\";\nif(!cfg.prodCountIncrement) cfg.prodCountIncrement = 1;\nif(!cfg.prodCountRollover) cfg.prodCountRollover = 32767;\nif(!cfg.prodCountAbsMin) cfg.prodCountAbsMin = 1;\nif(!cfg.prodCountAbsMax) cfg.prodCountAbsMax = 10;\nif(!cfg.scrapCountMode) cfg.scrapCountMode = \"incremental\";\nif(!cfg.scrapCountIncrement) cfg.scrapCountIncrement = 1;\nif(!cfg.scrapCountRollover) cfg.scrapCountRollover = 32767;\nif(!cfg.scrapCountAbsMin) cfg.scrapCountAbsMin = 1;\nif(!cfg.scrapCountAbsMax) cfg.scrapCountAbsMax = 10;\n\n// Automated StatusReason Management\nlet statusReason = flow.get('statusReason') || 0;\nlet downtimeEndTime = flow.get('downtimeEndTime');\nlet currentTime = Date.now();\n\nif (cfg.statusReasonAutomation) {\n  // Check if we're currently in a downtime period\n  if (statusReason > 0 && downtimeEndTime) {\n    // Check if downtime period has expired\n    if (currentTime >= downtimeEndTime) {\n      statusReason = 0; // Clear downtime\n      flow.set('statusReason', statusReason);\n      flow.set('downtimeEndTime', null);\n      // Send status reason update\n      setTimeout(() => {\n        node.send([null, null, null, null, {payload: statusReason}]);\n      }, 50);\n    }\n  } else if (statusReason === 0) {\n    // Machine is running, check for random downtime event\n    if (Math.random() < cfg.probabilityDowntime) {\n      // Trigger random downtime\n      let randomIdx = Math.floor(Math.random() * cfg.downtimeCodes.length);\n      statusReason = cfg.downtimeCodes[randomIdx];\n      \n      // Set random downtime duration\n      let duration = cfg.downtimeMinDuration + Math.random() * (cfg.downtimeMaxDuration - cfg.downtimeMinDuration);\n      downtimeEndTime = currentTime + duration;\n      \n      flow.set('statusReason', statusReason);\n      flow.set('downtimeEndTime', downtimeEndTime);\n      \n      // Send status reason update\n      setTimeout(() => {\n        node.send([null, null, null, null, {payload: statusReason}]);\n      }, 50);\n    }\n  }\n}\n\n// Calculate equipment status\nlet equipStatus = statusReason > 0 ? 0 : 1; // If statusReason is active, equipStatus is 0 (down)\n\n// Update equipment status\nflow.set('equipStatus', equipStatus);\n\n// Send equipment status update\nnode.send([null, null, null, {payload: equipStatus}]);\n\n// Only process production if machine is running (equipStatus = 1)\nlet outputs = [null, null, null, null, null];\n\nif (equipStatus === 1) {\n  let isScrap = Math.random() < cfg.probabilityScrap;\n  \n  if (isScrap) {\n    // Select random scrap reason based on weights\n    let totalW = cfg.scrapReasonWeights.reduce((a,b) => a+b, 0);\n    let r = Math.random() * totalW;\n    let idx = 0;\n    for (let w of cfg.scrapReasonWeights) {\n      if (r < w) break;\n      r -= w;\n      idx++;\n    }\n    let reasonCode = cfg.scrapReasonCodes[idx % cfg.scrapReasonCodes.length];\n    \n    // Send scrap reason first\n    outputs[1] = {payload: reasonCode};\n    \n    // Store scrap reason for monitoring\n    flow.set('lastScrapReason', reasonCode);\n    \n    // Send scrap count after 250-500ms delay with new counting logic\n    setTimeout(() => {\n      let scrap;\n      if (cfg.scrapCountMode === \"absolute\") {\n        // Absolute mode - generate random value in range\n        let min = cfg.scrapCountAbsMin || 1;\n        let max = cfg.scrapCountAbsMax || 10;\n        scrap = Math.floor(Math.random() * (max - min + 1)) + min;\n      } else {\n        // Incremental mode - use increment value\n        let currentCount = flow.get('scrapCount') || 0;\n        let increment = cfg.scrapCountIncrement || 1;\n        \n        // Handle random increment\n        if (increment === \"random\") {\n          increment = Math.floor(Math.random() * 100) + 1; // 1-100\n        }\n        \n        scrap = currentCount + increment;\n        // Implement rollover for incremental mode using proper modulo\n        let rollover = cfg.scrapCountRollover || 32767;\n        if (scrap > rollover) {\n          scrap = scrap - rollover;\n        }\n      }\n      flow.set('scrapCount', scrap);\n      node.send([null, null, {payload: scrap}, null, null]);\n    }, 250 + Math.random() * 250);\n    \n  } else {\n    // Good part - clear scrap reason for monitoring\n    flow.set('lastScrapReason', 0);\n    \n    // Good part - calculate production count based on mode\n    let prod;\n    if (cfg.prodCountMode === \"absolute\") {\n      // Absolute mode - generate random value in range\n      let min = cfg.prodCountAbsMin || 1;\n      let max = cfg.prodCountAbsMax || 10;\n      prod = Math.floor(Math.random() * (max - min + 1)) + min;\n    } else {\n      // Incremental mode - use increment value\n      let currentCount = flow.get('prodCount') || 0;\n      let increment = cfg.prodCountIncrement || 1;\n      \n      // Handle random increment\n      if (increment === \"random\") {\n        increment = Math.floor(Math.random() * 100) + 1; // 1-100\n      }\n      \n      prod = currentCount + increment;\n      // Implement rollover for incremental mode using proper modulo\n      let rollover = cfg.prodCountRollover || 32767;\n      if (prod > rollover) {\n        prod = prod - rollover;\n      }\n    }\n    flow.set('prodCount', prod);\n    outputs[0] = {payload: prod};\n  }\n}\n\nreturn outputs;",
+        "outputs": 5,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 970,
+        "y": 220,
+        "wires": [
+            [
+                "858a0b15c667a3ec"
+            ],
+            [
+                "3ad02ab792d2f681"
+            ],
+            [
+                "834a10926f752d15"
+            ],
+            [
+                "b7cedd8603ef1781"
+            ],
+            [
+                "b42f0e096784518a"
+            ]
+        ]
+    },
+    {
+        "id": "858a0b15c667a3ec",
+        "type": "change",
+        "z": "436b93522e8c0542",
+        "name": "Wrap Prod Count",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\n  \"messageType\": \"Variable\",\n  \"namespace\": \"1\",\n  \"variableName\": \"prodCount\",\n  \"datatype\": \"Int32\",\n  \"variableValue\": $.payload\n}",
+                "tot": "jsonata"
+            }
+        ],
+        "x": 1230,
+        "y": 100,
+        "wires": [
+            [
+                "35ed80fdb3da90cb"
+            ]
+        ]
+    },
+    {
+        "id": "3ad02ab792d2f681",
+        "type": "change",
+        "z": "436b93522e8c0542",
+        "name": "Wrap Scrap Reason",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{  \"messageType\": \"Variable\",  \"namespace\": \"1\",  \"variableName\": \"scrapReason\",  \"datatype\": \"Int32\",  \"variableValue\": $.payload}",
+                "tot": "jsonata"
+            }
+        ],
+        "x": 1240,
+        "y": 140,
+        "wires": [
+            [
+                "35ed80fdb3da90cb"
+            ]
+        ]
+    },
+    {
+        "id": "834a10926f752d15",
+        "type": "change",
+        "z": "436b93522e8c0542",
+        "name": "Wrap Scrap Count",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\n  \"messageType\": \"Variable\",\n  \"namespace\": \"1\",\n  \"variableName\": \"scrapCount\",\n  \"datatype\": \"Int32\",\n  \"variableValue\": $.payload\n}",
+                "tot": "jsonata"
+            }
+        ],
+        "x": 1230,
+        "y": 180,
+        "wires": [
+            [
+                "35ed80fdb3da90cb"
+            ]
+        ]
+    },
+    {
+        "id": "9cd825029f922260",
+        "type": "change",
+        "z": "436b93522e8c0542",
+        "name": "Wrap Equip Status",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\n  \"messageType\": \"Variable\",\n  \"namespace\": \"1\",\n  \"variableName\": \"equipStatus\",\n  \"datatype\": \"Int32\",\n  \"variableValue\": $.payload\n}",
+                "tot": "jsonata"
+            }
+        ],
+        "x": 1230,
+        "y": 220,
+        "wires": [
+            [
+                "35ed80fdb3da90cb"
+            ]
+        ]
+    },
+    {
+        "id": "b7cedd8603ef1781",
+        "type": "change",
+        "z": "436b93522e8c0542",
+        "name": "Wrap Equip Status Auto",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\n  \"messageType\": \"Variable\",\n  \"namespace\": \"1\",\n  \"variableName\": \"equipStatus\",\n  \"datatype\": \"Int32\",\n  \"variableValue\": $.payload\n}",
+                "tot": "jsonata"
+            }
+        ],
+        "x": 1250,
+        "y": 260,
+        "wires": [
+            [
+                "35ed80fdb3da90cb"
+            ]
+        ]
+    },
+    {
+        "id": "fbdfb644a898db57",
+        "type": "inject",
+        "z": "436b93522e8c0542",
+        "name": "Machine UP (Clear Status)",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0,
+        "topic": "",
+        "payload": "0",
+        "payloadType": "num",
+        "x": 170,
+        "y": 240,
+        "wires": [
+            [
+                "482198bc4bcdc54d"
+            ]
+        ]
+    },
+    {
+        "id": "1722f4da3b664f41",
+        "type": "inject",
+        "z": "436b93522e8c0542",
+        "name": "Enable StatusReason Automation",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0,
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "x": 190,
+        "y": 140,
+        "wires": [
+            [
+                "d368d305bdea8a76"
+            ]
+        ]
+    },
+    {
+        "id": "7479be8644d80d50",
+        "type": "inject",
+        "z": "436b93522e8c0542",
+        "name": "Disable StatusReason Automation",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0,
+        "topic": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "x": 200,
+        "y": 180,
+        "wires": [
+            [
+                "d368d305bdea8a76"
+            ]
+        ]
+    },
+    {
+        "id": "d368d305bdea8a76",
+        "type": "function",
+        "z": "436b93522e8c0542",
+        "name": "Toggle Automation",
+        "func": "let cfg = flow.get('config');\nif(!cfg){cfg={downtimeCodes:[101,102,103],scrapReasonCodes:[40,50,60,70,80,90,100],scrapReasonWeights:[1,1,1,1,1,1,1],cycleTime:1000,probabilityScrap:0.1,countMax:32768,probabilityDowntime:0.02,downtimeMinDuration:5000,downtimeMaxDuration:15000,statusReasonAutomation:true};flow.set('config',cfg);}\n\n// Check if this is a display update signal from Set Status Reason\nif (msg.updateDisplay !== undefined) {\n    // Update display based on signal from Set Status Reason\n    node.status({fill: msg.payload ? \"green\" : \"red\", shape: \"dot\", text: msg.payload ? \"Automation ON\" : \"Automation OFF\"});\n    return [null, null];\n}\n\n// Check if this is an initialization (timestamp, undefined, or empty payload means show current state)\nif (msg.payload === undefined || typeof msg.payload === 'number' || msg.payload === '') {\n    // Show initial automation state on startup\n    let currentAutomation = cfg.statusReasonAutomation;\n    node.status({fill: currentAutomation ? \"green\" : \"red\", shape: \"dot\", text: currentAutomation ? \"Automation ON\" : \"Automation OFF\"});\n    return [null, null];\n}\n\n// Normal toggle operation\ncfg.statusReasonAutomation = msg.payload;\nflow.set('config', cfg);\n\n// Set the status display first\nnode.status({fill: msg.payload ? \"green\" : \"red\", shape: \"dot\", text: msg.payload ? \"Automation ON\" : \"Automation OFF\"});\n\nif (!msg.payload) {\n    // Clear any existing downtime timer when disabling automation\n    flow.set('downtimeEndTime', null);\n    return [null, null];\n} else {\n    // When enabling automation, clear any manual statusReason and restart fresh\n    let currentStatusReason = flow.get('statusReason') || 0;\n    \n    // Always clear manual state when enabling automation\n    flow.set('statusReason', 0);\n    flow.set('equipStatus', 1);\n    flow.set('downtimeEndTime', null);\n    \n    // Send immediate status reason clear\n    return [{payload: 0}, {payload: 1}];\n}",
+        "outputs": 2,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 850,
+        "y": 100,
+        "wires": [
+            [
+                "b42f0e096784518a"
+            ],
+            [
+                "b7cedd8603ef1781"
+            ]
+        ]
+    },
+    {
+        "id": "b7bb428e0afb62f1",
+        "type": "inject",
+        "z": "436b93522e8c0542",
+        "name": "Set Status Reason 101",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0,
+        "topic": "",
+        "payload": "101",
+        "payloadType": "num",
+        "x": 160,
+        "y": 280,
+        "wires": [
+            [
+                "482198bc4bcdc54d"
+            ]
+        ]
+    },
+    {
+        "id": "b1e9914dcb24dc86",
+        "type": "inject",
+        "z": "436b93522e8c0542",
+        "name": "Set Status Reason 102",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0,
+        "topic": "",
+        "payload": "102",
+        "payloadType": "num",
+        "x": 160,
+        "y": 320,
+        "wires": [
+            [
+                "482198bc4bcdc54d"
+            ]
+        ]
+    },
+    {
+        "id": "0cc2d0d00e5d2816",
+        "type": "inject",
+        "z": "436b93522e8c0542",
+        "name": "Set Status Reason 103",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0,
+        "topic": "",
+        "payload": "103",
+        "payloadType": "num",
+        "x": 160,
+        "y": 360,
+        "wires": [
+            [
+                "482198bc4bcdc54d"
+            ]
+        ]
+    },
+    {
+        "id": "c398efd993eb84eb",
+        "type": "inject",
+        "z": "436b93522e8c0542",
+        "name": "Clear Status Reason",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0,
+        "topic": "",
+        "payload": "0",
+        "payloadType": "num",
+        "x": 150,
+        "y": 400,
+        "wires": [
+            [
+                "482198bc4bcdc54d"
+            ]
+        ]
+    },
+    {
+        "id": "482198bc4bcdc54d",
+        "type": "function",
+        "z": "436b93522e8c0542",
+        "name": "Set Status Reason",
+        "func": "// Manual override - disable automation\nlet cfg = flow.get('config');\nif(!cfg){cfg={downtimeCodes:[101,102,103],scrapReasonCodes:[40,50,60,70,80,90,100],scrapReasonWeights:[1,1,1,1,1,1,1],cycleTime:1000,probabilityScrap:0.1,countMax:32768,probabilityDowntime:0.02,downtimeMinDuration:5000,downtimeMaxDuration:15000,statusReasonAutomation:true};}\n\n// Disable automation when manual control is used\ncfg.statusReasonAutomation = false;\nflow.set('config', cfg);\n\n// Clear any existing downtime timer\nflow.set('downtimeEndTime', null);\n\n// Set the manual status reason\nflow.set('statusReason', msg.payload);\n\n// Show manual override status only when triggered\nnode.status({fill: \"yellow\", shape: \"dot\", text: `Manual Override: ${msg.payload} - Automation OFF`});\n\n// Clear status after 3 seconds\nsetTimeout(() => {\n    node.status({});\n}, 3000);\n\n// Return status reason for OPC-UA and signal to update Toggle Automation display\nreturn [msg, {payload: false, updateDisplay: true}];",
+        "outputs": 2,
+        "noerr": 0,
+        "x": 750,
+        "y": 260,
+        "wires": [
+            [
+                "b42f0e096784518a"
+            ],
+            [
+                "d368d305bdea8a76"
+            ]
+        ]
+    },
+    {
+        "id": "b42f0e096784518a",
+        "type": "change",
+        "z": "436b93522e8c0542",
+        "name": "Wrap Status Reason",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\n  \"messageType\": \"Variable\",\n  \"namespace\": \"1\",\n  \"variableName\": \"statusReason\",\n  \"datatype\": \"Int32\",\n  \"variableValue\": $.payload\n}",
+                "tot": "jsonata"
+            }
+        ],
+        "x": 1240,
+        "y": 300,
+        "wires": [
+            [
+                "35ed80fdb3da90cb"
+            ]
+        ]
+    },
+    {
+        "id": "35ed80fdb3da90cb",
+        "type": "OpcUa-Server",
+        "z": "436b93522e8c0542",
+        "port": "4840",
+        "name": "OPCUA-Pi-Sim",
+        "endpoint": "",
+        "users": "",
+        "nodesetDir": "",
+        "autoAcceptUnknownCertificate": false,
+        "registerToDiscovery": false,
+        "constructDefaultAddressSpace": true,
+        "allowAnonymous": true,
+        "endpointNone": true,
+        "endpointSign": false,
+        "endpointSignEncrypt": false,
+        "endpointBasic128Rsa15": false,
+        "endpointBasic256": false,
+        "endpointBasic256Sha256": false,
+        "maxNodesPerBrowse": "",
+        "maxNodesPerHistoryReadData": "",
+        "maxNodesPerHistoryReadEvents": "",
+        "maxNodesPerHistoryUpdateData": "",
+        "maxNodesPerRead": "",
+        "maxNodesPerWrite": "",
+        "maxNodesPerMethodCall": "",
+        "maxNodesPerRegisterNodes": "",
+        "maxNodesPerNodeManagement": "",
+        "maxMonitoredItemsPerCall": "",
+        "maxNodesPerHistoryUpdateEvents": "",
+        "maxNodesPerTranslateBrowsePathsToNodeIds": "",
+        "maxConnectionsPerEndpoint": "",
+        "maxMessageSize": "",
+        "maxBufferSize": "",
+        "maxSessions": "",
+        "x": 1540,
+        "y": 260,
+        "wires": [
+            [
+                "84b27d1596cea6d2"
+            ]
+        ]
+    },
+    {
+        "id": "84b27d1596cea6d2",
+        "type": "function",
+        "z": "436b93522e8c0542",
+        "name": "Current Values Monitor",
+        "func": "// Get all current values from flow variables\nlet prodCount = flow.get('prodCount') || 0;\nlet scrapCount = flow.get('scrapCount') || 0;\nlet statusReason = flow.get('statusReason') || 0;\nlet equipStatus = flow.get('equipStatus') || 0;\n\n// Extract values from incoming message based on variable name\nlet currentValue = 'N/A';\nlet variableName = 'Unknown';\n\nif (msg.payload && msg.payload.variableName) {\n    variableName = msg.payload.variableName;\n    currentValue = msg.payload.variableValue;\n    \n    // Update status to show what was just sent\n    let statusText = `${variableName}: ${currentValue}`;\n    \n    // Add context for reason codes\n    if (variableName === 'scrapReason') {\n        statusText += ` (${getReasonDescription(currentValue, 'scrap')})`;\n    } else if (variableName === 'statusReason') {\n        statusText += ` (${getReasonDescription(currentValue, 'status')})`;\n    } else if (variableName === 'equipStatus') {\n        statusText += ` (${currentValue === 1 ? 'Running' : 'Down'})`;\n    }\n    \n    // Color code by variable type\n    let fillColor = \"gray\";\n    if (variableName.includes('Count')) fillColor = \"blue\";\n    else if (variableName.includes('Reason')) fillColor = \"orange\";\n    else if (variableName === 'equipStatus') fillColor = currentValue === 1 ? \"green\" : \"red\";\n\n    \n    node.status({\n        fill: fillColor,\n        shape: \"dot\",\n        text: statusText\n    });\n}\n\n// Helper function for reason descriptions\nfunction getReasonDescription(code, type) {\n    if (type === 'scrap') {\n        const reasons = {40: 'Defect1', 50: 'Defect2', 60: 'Defect3', 70: 'Defect4', 80: 'Defect5', 90: 'Defect6', 100: 'Defect7'};\n        return reasons[code] || 'Unknown';\n    } else if (type === 'status') {\n        const reasons = {0: 'Running', 101: 'Maint1', 102: 'Maint2', 103: 'Maint3'};\n        return reasons[code] || 'Unknown';\n    }\n    return '';\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1750,
+        "y": 260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a8f7ab5f5a4ed4af",
+        "type": "function",
+        "z": "436b93522e8c0542",
+        "name": "ProdCount Monitor",
+        "func": "// Get current prodCount value\nlet prodCount = flow.get('prodCount') || 0;\n\n// Get config for mode information\nlet cfg = flow.get('config') || {};\nlet prodMode = cfg.prodCountMode || 'incremental';\nlet prodRollover = cfg.prodCountRollover || 32767;\n\n// Build status text\nlet statusText = `▶️ prodCount: ${prodCount} (${prodMode}, R:${prodRollover})`;\n\n// Show status with blue color for production count\nnode.status({\n    fill: \"blue\",\n    shape: \"dot\",\n    text: statusText\n});\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1650,
+        "y": 540,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "efd94c6196ec80ce",
+        "type": "function",
+        "z": "436b93522e8c0542",
+        "name": "ScrapCount Monitor",
+        "func": "// Get current scrapCount value\nlet scrapCount = flow.get('scrapCount') || 0;\n\n// Get config for mode information\nlet cfg = flow.get('config') || {};\nlet scrapMode = cfg.scrapCountMode || 'incremental';\nlet scrapRollover = cfg.scrapCountRollover || 32767;\n\n// Build status text\nlet statusText = `🗑️ scrapCount: ${scrapCount} (${scrapMode}, R:${scrapRollover})`;\n\n// Show status with orange color for scrap count\nnode.status({\n    fill: \"orange\",\n    shape: \"dot\",\n    text: statusText\n});\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1660,
+        "y": 600,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8021c91c11ec3f9f",
+        "type": "function",
+        "z": "436b93522e8c0542",
+        "name": "ScrapReason Monitor",
+        "func": "// Get current scrapReason value\nlet scrapReason = flow.get('lastScrapReason') || 0;\n\n// Helper function for reason descriptions\nfunction getScrapReasonDesc(code) {\n    const reasons = {0: 'None', 40: 'Defect1', 50: 'Defect2', 60: 'Defect3', 70: 'Defect4', 80: 'Defect5', 90: 'Defect6', 100: 'Defect7'};\n    return reasons[code] || 'Unknown';\n}\n\n// Build status text\nlet statusText = `⚠️ scrapReason: ${scrapReason} (${getScrapReasonDesc(scrapReason)})`;\n\n// Show status with yellow color for scrap reason\nnode.status({\n    fill: \"yellow\",\n    shape: \"dot\",\n    text: statusText\n});\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1660,
+        "y": 660,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f7d243c29d33dec5",
+        "type": "function",
+        "z": "436b93522e8c0542",
+        "name": "StatusReason Monitor",
+        "func": "// Get current statusReason value\nlet statusReason = flow.get('statusReason') || 0;\n\n// Helper function for status descriptions\nfunction getStatusReasonDesc(code) {\n    const reasons = {0: 'Running', 101: 'Maintenance1', 102: 'Maintenance2', 103: 'Maintenance3'};\n    return reasons[code] || 'Unknown';\n}\n\n// Build status text\nlet statusText = `🔧 statusReason: ${statusReason} (${getStatusReasonDesc(statusReason)})`;\n\n// Show status with purple color for status reason\nnode.status({\n    fill: \"purple\",\n    shape: \"dot\",\n    text: statusText\n});\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1660,
+        "y": 480,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9cf8b44ef2eb88fc",
+        "type": "function",
+        "z": "436b93522e8c0542",
+        "name": "EquipStatus Monitor",
+        "func": "// Get current equipStatus value\nlet equipStatus = flow.get('equipStatus') || 0;\n\n// Build status text\nlet statusText = `⚡ equipStatus: ${equipStatus} (${equipStatus === 1 ? 'Running' : 'Down'})`;\n\n// Show status with green/red color based on equipment status\nnode.status({\n    fill: equipStatus === 1 ? \"green\" : \"red\",\n    shape: \"dot\",\n    text: statusText\n});\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1660,
+        "y": 420,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "bccfddd7cca76e11",
+        "type": "inject",
+        "z": "436b93522e8c0542",
+        "name": "Set Default Value 100",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "3",
+        "topic": "",
+        "payload": "100",
+        "payloadType": "num",
+        "x": 180,
+        "y": 480,
+        "wires": [
+            [
+                "3d950e1aae671c58"
+            ]
+        ]
+    },
+    {
+        "id": "f6ae20e070ac881e",
+        "type": "inject",
+        "z": "436b93522e8c0542",
+        "name": "Manual Write Value",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0,
+        "topic": "",
+        "payload": "150",
+        "payloadType": "num",
+        "x": 170,
+        "y": 520,
+        "wires": [
+            [
+                "3d950e1aae671c58"
+            ]
+        ]
+    },
+    {
+        "id": "3d950e1aae671c58",
+        "type": "OpcUa-Item",
+        "z": "436b93522e8c0542",
+        "item": "ns=1;s=readWriteInt",
+        "datatype": "Int32",
+        "value": "",
+        "name": "readWriteInt Variable",
+        "x": 760,
+        "y": 420,
+        "wires": [
+            [
+                "405034afdfc9c8b5"
+            ]
+        ]
+    },
+    {
+        "id": "405034afdfc9c8b5",
+        "type": "change",
+        "z": "436b93522e8c0542",
+        "name": "Wrap readWriteInt for Server",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{  \"messageType\": \"Variable\",  \"namespace\": \"1\",  \"variableName\": \"readWriteInt\",  \"datatype\": \"Int32\",  \"variableValue\": $.payload}",
+                "tot": "jsonata"
+            }
+        ],
+        "x": 1260,
+        "y": 340,
+        "wires": [
+            [
+                "35ed80fdb3da90cb"
+            ]
+        ]
+    },
+    {
+        "id": "b1dea0b77b135df5",
+        "type": "inject",
+        "z": "436b93522e8c0542",
+        "name": "Subscribe to readWriteInt",
+        "props": [
+            {
+                "p": "action",
+                "v": "subscribe",
+                "vt": "str"
+            },
+            {
+                "p": "topic",
+                "v": "ns=1;s=readWriteInt",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "4",
+        "topic": "ns=1;s=readWriteInt",
+        "x": 1620,
+        "y": 60,
+        "wires": [
+            [
+                "8f84d3a6eb7a9557"
+            ]
+        ]
+    },
+    {
+        "id": "fee63f77161f1db2",
+        "type": "function",
+        "z": "436b93522e8c0542",
+        "name": "External Write Display",
+        "func": "// Display values received from external writes (UAExpert)\nif (msg.payload !== undefined) {\n    let value = msg.payload;\n    let timestamp = new Date().toLocaleTimeString();\n    \n    node.status({\n        fill: \"orange\",\n        shape: \"dot\",\n        text: `External Write: ${value} at ${timestamp}`\n    });\n    \n    // Log the external write\n    node.log(`External client wrote value: ${value} to readWriteInt`);\n    \n    // Keep the status visible longer for external writes\n    setTimeout(() => {\n        node.status({\n            fill: \"grey\", \n            shape: \"dot\", \n            text: `Last External: ${value}`\n        });\n    }, 5000);\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2360,
+        "y": 80,
+        "wires": [
+            [
+                "95cc835f64ad5fd5"
+            ]
+        ]
+    },
+    {
+        "id": "95cc835f64ad5fd5",
+        "type": "debug",
+        "z": "436b93522e8c0542",
+        "name": "External Writes Log",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 2590,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "9d195a036063e6af",
+        "type": "inject",
+        "z": "436b93522e8c0542",
+        "name": "Set Default String 'Hello'",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "3.1",
+        "topic": "",
+        "payload": "Hello",
+        "payloadType": "str",
+        "x": 190,
+        "y": 580,
+        "wires": [
+            [
+                "52f503677cc5e3db"
+            ]
+        ]
+    },
+    {
+        "id": "9eae626942f245d9",
+        "type": "inject",
+        "z": "436b93522e8c0542",
+        "name": "Manual Write String",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0,
+        "topic": "",
+        "payload": "Node-RED Message",
+        "payloadType": "str",
+        "x": 170,
+        "y": 620,
+        "wires": [
+            [
+                "52f503677cc5e3db"
+            ]
+        ]
+    },
+    {
+        "id": "52f503677cc5e3db",
+        "type": "OpcUa-Item",
+        "z": "436b93522e8c0542",
+        "item": "ns=1;s=readWriteString",
+        "datatype": "String",
+        "value": "",
+        "name": "readWriteString Variable",
+        "x": 770,
+        "y": 460,
+        "wires": [
+            [
+                "4c2d74795ee9b5b1"
+            ]
+        ]
+    },
+    {
+        "id": "4c2d74795ee9b5b1",
+        "type": "change",
+        "z": "436b93522e8c0542",
+        "name": "Wrap readWriteString for Server",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\n  \"messageType\": \"Variable\",\n  \"namespace\": \"1\",\n  \"variableName\": \"readWriteString\",\n  \"datatype\": \"String\",\n  \"variableValue\": $.payload\n}",
+                "tot": "jsonata"
+            }
+        ],
+        "x": 1270,
+        "y": 380,
+        "wires": [
+            [
+                "35ed80fdb3da90cb"
+            ]
+        ]
+    },
+    {
+        "id": "8f84d3a6eb7a9557",
+        "type": "OpcUa-Client",
+        "z": "436b93522e8c0542",
+        "endpoint": "ec0435346c5c4dec",
+        "action": "subscribe",
+        "deadbandvalue": "",
+        "time": "1",
+        "timeUnit": "s",
+        "localfile": "",
+        "localkeyfile": "",
+        "useTransport": false,
+        "maxChunkCount": "",
+        "maxMessageSize": "",
+        "receiveBufferSize": "",
+        "sendBufferSize": "",
+        "setstatusandtime": false,
+        "keepsessionalive": false,
+        "name": "External String Monitor",
+        "x": 1880,
+        "y": 100,
+        "wires": [
+            [
+                "0bd00c41227d50f2"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "0bd00c41227d50f2",
+        "type": "function",
+        "z": "436b93522e8c0542",
+        "name": "Route by Variable Type",
+        "func": "// Route data based on NodeId in msg.topic\nif (msg.topic) {\n    let nodeId = msg.topic;\n    \n    // Check which variable this data belongs to\n    if (nodeId.includes('readWriteInt')) {\n        // Route to integer display (output 1)\n        return [msg, null];\n    } else if (nodeId.includes('readWriteString')) {\n        // Route to string display (output 2)\n        return [null, msg];\n    }\n}\n\n// Default: no routing if topic is unclear\nnode.warn(`Unknown NodeId in topic: ${msg.topic}`);\nreturn [null, null];",
+        "outputs": 2,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2110,
+        "y": 100,
+        "wires": [
+            [
+                "fee63f77161f1db2"
+            ],
+            [
+                "8cf79dadf1d5d142"
+            ]
+        ]
+    },
+    {
+        "id": "e397677f6cb05247",
+        "type": "inject",
+        "z": "436b93522e8c0542",
+        "name": "Subscribe to readWriteString",
+        "props": [
+            {
+                "p": "action",
+                "v": "subscribe",
+                "vt": "str"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "4.1",
+        "topic": "ns=1;s=readWriteString",
+        "x": 1620,
+        "y": 140,
+        "wires": [
+            [
+                "8f84d3a6eb7a9557"
+            ]
+        ]
+    },
+    {
+        "id": "8cf79dadf1d5d142",
+        "type": "function",
+        "z": "436b93522e8c0542",
+        "name": "External String Display",
+        "func": "// Display string values received from external writes (UAExpert)\nif (msg.payload !== undefined) {\n    let value = msg.payload;\n    let timestamp = new Date().toLocaleTimeString();\n    \n    // Truncate very long strings for display\n    let displayValue = value.length > 20 ? value.substring(0, 20) + '...' : value;\n    \n    node.status({\n        fill: \"orange\",\n        shape: \"dot\",\n        text: `External String: '${displayValue}' at ${timestamp}`\n    });\n    \n    // Log the full external write\n    node.log(`External client wrote string: '${value}' to readWriteString`);\n    \n    // Keep the status visible longer for external writes\n    setTimeout(() => {\n        node.status({\n            fill: \"grey\", \n            shape: \"dot\", \n            text: `Last String: '${displayValue}'`\n        });\n    }, 5000);\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2360,
+        "y": 140,
+        "wires": [
+            [
+                "b9d06059f7edcece"
+            ]
+        ]
+    },
+    {
+        "id": "b9d06059f7edcece",
+        "type": "debug",
+        "z": "436b93522e8c0542",
+        "name": "String Writes Log",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 2590,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "ec0435346c5c4dec",
+        "type": "OpcUa-Endpoint",
+        "endpoint": "opc.tcp://localhost:4840",
+        "secpol": "None",
+        "secmode": "None",
+        "none": true,
+        "login": false,
+        "usercert": false,
+        "usercertificate": "",
+        "userprivatekey": ""
+    },
+    {
+        "id": "resetProdCountInject",
+        "type": "inject",
+        "z": "436b93522e8c0542",
+        "name": "Reset ProdCount to 0",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 170,
+        "y": 1000,
+        "wires": [
+            [
+                "resetProdCountFunction"
+            ]
+        ]
+    },
+    {
+        "id": "resetScrapCountInject",
+        "type": "inject",
+        "z": "436b93522e8c0542",
+        "name": "Reset ScrapCount to 0",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 170,
+        "y": 1040,
+        "wires": [
+            [
+                "resetScrapCountFunction"
+            ]
+        ]
+    },
+    {
+        "id": "resetBothCountsInject",
+        "type": "inject",
+        "z": "436b93522e8c0542",
+        "name": "Reset Both Counts to 0",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 170,
+        "y": 1080,
+        "wires": [
+            [
+                "resetBothCountsFunction"
+            ]
+        ]
+    },
+    {
+        "id": "resetProdCountFunction",
+        "type": "function",
+        "z": "436b93522e8c0542",
+        "name": "Reset ProdCount",
+        "func": "// Reset production count to 0\nflow.set('prodCount', 0);\n\n// Show status update\nnode.status({\n    fill: \"blue\",\n    shape: \"dot\",\n    text: \"ProdCount reset to 0\"\n});\n\n// Clear status after 3 seconds\nsetTimeout(() => {\n    node.status({});\n}, 3000);\n\n// Send reset value to OPC UA server\nreturn {payload: 0};",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 390,
+        "y": 1000,
+        "wires": [
+            [
+                "858a0b15c667a3ec"
+            ]
+        ]
+    },
+    {
+        "id": "resetScrapCountFunction",
+        "type": "function",
+        "z": "436b93522e8c0542",
+        "name": "Reset ScrapCount",
+        "func": "// Reset scrap count to 0\nflow.set('scrapCount', 0);\n\n// Show status update\nnode.status({\n    fill: \"orange\",\n    shape: \"dot\",\n    text: \"ScrapCount reset to 0\"\n});\n\n// Clear status after 3 seconds\nsetTimeout(() => {\n    node.status({});\n}, 3000);\n\n// Send reset value to OPC UA server\nreturn {payload: 0};",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 390,
+        "y": 1040,
+        "wires": [
+            [
+                "834a10926f752d15"
+            ]
+        ]
+    },
+    {
+        "id": "resetBothCountsFunction",
+        "type": "function",
+        "z": "436b93522e8c0542",
+        "name": "Reset Both Counts",
+        "func": "// Reset both counts to 0\nflow.set('prodCount', 0);\nflow.set('scrapCount', 0);\n\n// Show status update\nnode.status({\n    fill: \"green\",\n    shape: \"dot\",\n    text: \"Both counts reset to 0\"\n});\n\n// Clear status after 3 seconds\nsetTimeout(() => {\n    node.status({});\n}, 3000);\n\n// Send reset values to OPC UA server (both outputs)\nreturn [{payload: 0}, {payload: 0}];",
+        "outputs": 2,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 390,
+        "y": 1080,
+        "wires": [
+            [
+                "858a0b15c667a3ec"
+            ],
+            [
+                "834a10926f752d15"
+            ]
+        ]
+    }
+]
