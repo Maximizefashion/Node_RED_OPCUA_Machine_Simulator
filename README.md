@@ -139,7 +139,7 @@ For any OPC-UA client (Ignition, Kepware, Factory Talk, etc.):
 ## IIOT Standards Integration
 
 ### Tag Structure
-All variables follow industrial automation conventions for any SCADA/HMI system:
+All variables follow our IIOT tag requirements:
 - **equipStatus**: Drive production line graphics (0=Down, 1=Running)
 - **prodCount/scrapCount**: Production tracking with advanced counting modes
 - **statusReason**: Downtime analysis (0=Running, 101-103=Maintenance)
