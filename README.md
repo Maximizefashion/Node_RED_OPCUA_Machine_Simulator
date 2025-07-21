@@ -8,6 +8,8 @@
 
 **Connection**: OPC-UA clients connect to `opc.tcp://localhost:4840` (Anonymous/None security)
 
+**⚠️ Important**: External writes to variables are visible but will be overridden by the simulator during cycle operations. This mimics real industrial equipment where PLCs control the process.
+
 ## Core Controls
 
 ### Simulation Control
@@ -126,25 +128,27 @@ OPC-UA server updates use this structure:
 }
 ```
 
-### Client Subscription Setup
-For external OPC-UA clients:
+### OPC-UA Client Setup
+For any OPC-UA client (Ignition, Kepware, Factory Talk, etc.):
 1. **Endpoint**: opc.tcp://localhost:4840
 2. **Security Policy**: None
 3. **Security Mode**: None  
 4. **Authentication**: Anonymous
 5. **Subscribe** to desired NodeIds (ns=1;s=variableName)
 
-## Ignition Integration
+## IIOT Standards Integration
 
-### Tag Import
-All variables follow standard manufacturing conventions:
+### Tag Structure
+All variables follow industrial automation conventions for any SCADA/HMI system:
 - **equipStatus**: Drive production line graphics (0=Down, 1=Running)
 - **prodCount/scrapCount**: Production tracking with advanced counting modes
 - **statusReason**: Downtime analysis (0=Running, 101-103=Maintenance)
 - **scrapReason**: Quality analysis (40-100=Defect codes)
+- **Compatible Systems**: Ignition, Kepware, Factory Talk, WinCC, and other OPC-UA clients
 
 ### External Write Testing
 - **All Variables Writable**: equipStatus, prodCount, scrapCount, statusReason, etc. can all be written from external clients
+- **Simulator Override**: Written values will be overridden during simulator cycles (realistic behavior)
 - **readWriteInt/readWriteString**: Demonstration examples with built-in monitoring
 - **Real-time Feedback**: Use demonstrated monitoring pattern for any variable
 - **Data Validation**: Monitor value changes from external clients to any OPC-UA variable
@@ -152,7 +156,8 @@ All variables follow standard manufacturing conventions:
 ## Troubleshooting
 
 ### Common Issues
-- **No External Writes Detected**: Check UAExpert connection to correct endpoint
+- **No External Writes Detected**: Check OPC-UA client connection to correct endpoint
+- **Written Values Get Overridden**: Normal behavior - simulator overrides values during cycles (mimics real PLCs)
 - **Automation Not Working**: Verify automation is enabled via toggle button
 - **Counter Resets Unexpectedly**: Check rollover settings vs current count values
 
