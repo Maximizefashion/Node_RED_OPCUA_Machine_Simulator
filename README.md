@@ -1,5 +1,3 @@
-# Node_RED_Machine_Simulator
-
 # OPC-UA Machine Simulator User Guide
 
 ## Quick Start
@@ -14,10 +12,10 @@
 
 ### Simulation Control
 - **Start Simulation**: Begins production cycles with current settings
-- **Cycle Time**: 500ms, 1000ms, 2000ms, or custom timing via inject buttons
+- **Cycle Time**: 750ms, 1000ms, 2000ms, or custom timing via inject buttons
 
 ### Machine Status Control
-- **Enable/Disable Automation**: Toggle automatic random downtime events
+- **Enable/Disable Automation**: Toggle automatic random downtime events, disabling automation requires manual injection of downtime events
 - **Manual Status Reason**: Set 0 (clear), 101, 102, 103, or custom values
 - **Override Behavior**: Any manual status injection automatically disables automation
 
@@ -44,27 +42,33 @@
 - **Reset ScrapCount**: Reset scrap count to 0
 - **Independent Operation**: Each counter resets individually
 
-## Bidirectional Variables
+## External Write Monitoring Examples
 
-### readWriteInt (Integer Variable)
-**Node-RED Controls**:
-- **Set Default Value 100**: Initialize with default
-- **Manual Write Value**: Send 150 (or edit for custom value)
+**Important**: All OPC-UA variables (equipStatus, prodCount, scrapCount, etc.) can be written to by external clients. The readWriteInt and readWriteString variables below are **demonstration examples** that show how to set up real-time monitoring of external writes in Node-RED.
 
-**UAExpert Integration**:
-- Write any integer value from UAExpert
+### readWriteInt (Example Integer Variable)
+**Purpose**: Demonstrates how to monitor external writes to any OPC-UA variable
+
+**Node-RED Testing Controls**:
+- **Set Default Value 100**: Initialize for testing
+- **Manual Write Value**: Send 150 (edit for custom values)
+
+**External Client Integration**:
+- Any OPC-UA client (UAExpert, Ignition, etc.) can write integer values
 - Real-time monitoring displays external writes with timestamps
-- Color-coded visual feedback (orange for external writes)
+- Shows pattern for monitoring writes to ANY OPC-UA integer variable
 
-### readWriteString (String Variable)
-**Node-RED Controls**:
-- **Set Default String 'Hello'**: Initialize with default
-- **Manual Write String**: Send "Node-RED Message" (or edit for custom text)
+### readWriteString (Example String Variable)
+**Purpose**: Demonstrates external write monitoring for string variables
 
-**UAExpert Integration**:
-- Write any string value from UAExpert
+**Node-RED Testing Controls**:
+- **Set Default String 'Hello'**: Initialize for testing
+- **Manual Write String**: Send "Node-RED Message" (edit for custom text)
+
+**External Client Integration**:
+- Any OPC-UA client can write string values
 - String truncation for display (20 characters + "...")
-- Real-time monitoring with full logging
+- Shows pattern for monitoring writes to ANY OPC-UA string variable
 
 ## Real-Time Monitoring
 
@@ -139,10 +143,11 @@ All variables follow standard manufacturing conventions:
 - **statusReason**: Downtime analysis (0=Running, 101-103=Maintenance)
 - **scrapReason**: Quality analysis (40-100=Defect codes)
 
-### Bidirectional Testing
-- **readWriteInt/readWriteString**: Test operator interface functionality
-- **Real-time Feedback**: Verify HMI write operations
-- **Data Validation**: Monitor value changes in both directions
+### External Write Testing
+- **All Variables Writable**: equipStatus, prodCount, scrapCount, statusReason, etc. can all be written from external clients
+- **readWriteInt/readWriteString**: Demonstration examples with built-in monitoring
+- **Real-time Feedback**: Use demonstrated monitoring pattern for any variable
+- **Data Validation**: Monitor value changes from external clients to any OPC-UA variable
 
 ## Troubleshooting
 
